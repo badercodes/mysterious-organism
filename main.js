@@ -34,7 +34,7 @@ const pAequorFactory = (specimenNum, dna) => {
       }
       let result = (common / dna.length) * 100;
       console.log(
-        `specimen #${this.specimenNum} and specimen #${this.specimenNum} have ${result}% DNA in common`
+        `specimen #${this.specimenNum} and specimen #${obj.specimenNum} have ${result}% DNA in common`
       );
       return result;
     },

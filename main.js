@@ -37,6 +37,16 @@ const pAequorFactory = (specimenNum, dna) => {
         `specimen #${this.specimenNum} and specimen #${this.specimenNum} have ${result}% DNA in common`
       );
     },
+    willLikelySurvive() {
+      let count = 0;
+      let total = this.dna.length;
+      this.dna.forEach((element) => {
+        if (element === "G" || element === "C") count++;
+      });
+      // for testing
+      // console.log(count);
+      return count / total >= 0.6 ? true : false;
+    },
   };
 };
 
@@ -53,3 +63,6 @@ let ex1 = pAequorFactory(1, ["A", "C", "T", "G"]);
 let ex2 = pAequorFactory(2, ["A", "QC", "QT", "QT"]);
 ex1.compareDNA(ex2);
 ex2.compareDNA(ex1);
+
+// testing #6
+console.log(ex1.willLikelySurvive());

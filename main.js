@@ -26,6 +26,17 @@ const pAequorFactory = (specimenNum, dna) => {
       }
       this.dna[random] = newBase;
     },
+    compareDNA: function (obj) {
+      // compare this.dna with obj.dna
+      let common = 0;
+      for (let i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === obj.dna[i]) common++;
+      }
+      let result = (common / dna.length) * 100;
+      console.log(
+        `specimen #${this.specimenNum} and specimen #${this.specimenNum} have ${result}% DNA in common`
+      );
+    },
   };
 };
 
@@ -33,6 +44,12 @@ const pAequorFactory = (specimenNum, dna) => {
 // console.log(pAequorFactory(100, ["A", "C"]));
 
 // testing #4
-let specimen = pAequorFactory(100, ["A", "T", "C"]);
-specimen.mutate();
-console.log(specimen);
+// let specimen = pAequorFactory(100, ["A", "T", "C"]);
+// specimen.mutate();
+// console.log(specimen);
+
+// testing #5
+let ex1 = pAequorFactory(1, ["A", "C", "T", "G"]);
+let ex2 = pAequorFactory(2, ["A", "QC", "QT", "QT"]);
+ex1.compareDNA(ex2);
+ex2.compareDNA(ex1);

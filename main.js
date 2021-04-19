@@ -47,6 +47,33 @@ const pAequorFactory = (specimenNum, dna) => {
       // console.log(count);
       return count / total >= 0.6 ? true : false;
     },
+    complementStrand() {
+      const complementDNA = [];
+      for (element of this.dna) {
+        switch (element) {
+          case "A":
+            complementDNA.push("T");
+            break;
+
+          case "T":
+            complementDNA.push("A");
+            break;
+
+          case "C":
+            complementDNA.push("G");
+            break;
+
+          case "G":
+            complementDNA.push("C");
+            break;
+
+          default:
+            complementDNA.push(element);
+            break;
+        }
+      }
+      return complementDNA;
+    },
   };
 };
 
@@ -82,3 +109,23 @@ while (i < 30) {
 }
 // testing #7
 // console.log(strongPAqueor);
+
+// testing #9 complement DNA
+let a = pAequorFactory(1, [
+  "T",
+  "A",
+  "C",
+  "A",
+  "G",
+  "A",
+  "T",
+  "A",
+  "C",
+  "G",
+  "A",
+  "C",
+  "G",
+  "A",
+  "T",
+]);
+console.log(a.complementStrand());

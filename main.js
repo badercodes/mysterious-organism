@@ -139,7 +139,7 @@ let check;
 for (let i = 0; i < 30; i++) {
   for (let j = i + 1; j < 30; j++) {
     check = strongPAqueor[i].compareDNA(strongPAqueor[j]);
-    console.log(check);
+    // console.log(check);
     if (check >= related) {
       first = i;
       second = j;

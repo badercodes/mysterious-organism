@@ -59,10 +59,26 @@ const pAequorFactory = (specimenNum, dna) => {
 // console.log(specimen);
 
 // testing #5
-let ex1 = pAequorFactory(1, ["A", "C", "T", "G"]);
-let ex2 = pAequorFactory(2, ["A", "QC", "QT", "QT"]);
-ex1.compareDNA(ex2);
-ex2.compareDNA(ex1);
+// let ex1 = pAequorFactory(1, ["A", "C", "T", "G"]);
+// let ex2 = pAequorFactory(2, ["A", "QC", "QT", "QT"]);
+// ex1.compareDNA(ex2);
+// ex2.compareDNA(ex1);
 
 // testing #6
-console.log(ex1.willLikelySurvive());
+// console.log(ex1.willLikelySurvive());
+
+// implemetning #7
+let i = 0;
+let temp;
+const strongPAqueor = [];
+while (i < 30) {
+  temp = pAequorFactory(i, mockUpStrand());
+  if (temp.willLikelySurvive()) {
+    strongPAqueor.push(temp);
+    i++;
+  }
+  // testing
+  // console.log(temp);
+}
+// testing #7
+// console.log(strongPAqueor);

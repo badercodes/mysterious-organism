@@ -36,6 +36,7 @@ const pAequorFactory = (specimenNum, dna) => {
       console.log(
         `specimen #${this.specimenNum} and specimen #${this.specimenNum} have ${result}% DNA in common`
       );
+      return result;
     },
     willLikelySurvive() {
       let count = 0;
@@ -111,21 +112,41 @@ while (i < 30) {
 // console.log(strongPAqueor);
 
 // testing #9 complement DNA
-let a = pAequorFactory(1, [
-  "T",
-  "A",
-  "C",
-  "A",
-  "G",
-  "A",
-  "T",
-  "A",
-  "C",
-  "G",
-  "A",
-  "C",
-  "G",
-  "A",
-  "T",
-]);
-console.log(a.complementStrand());
+// let a = pAequorFactory(1, [
+//   "T",
+//   "A",
+//   "C",
+//   "A",
+//   "G",
+//   "A",
+//   "T",
+//   "A",
+//   "C",
+//   "G",
+//   "A",
+//   "C",
+//   "G",
+//   "A",
+//   "T",
+// ]);
+// console.log(a.complementStrand());
+
+// implementation of challenge finding 2 most related strands
+let related = 0;
+let first;
+let second;
+let check;
+for (let i = 0; i < 30; i++) {
+  for (let j = i + 1; j < 30; j++) {
+    check = strongPAqueor[i].compareDNA(strongPAqueor[j]);
+    console.log(check);
+    if (check >= related) {
+      first = i;
+      second = j;
+      related = check;
+    }
+  }
+}
+console.log(related);
+console.log(first);
+console.log(second);
